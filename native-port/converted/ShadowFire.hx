@@ -1,0 +1,61 @@
+import flash.display.MovieClip;
+
+@:meta(Embed(source="/_assets/assets.swf",symbol="symbol5341"))
+
+class ShadowFire extends MovieClip
+{
+    
+    private var moveRL : Float;
+    
+    private var moveUD : Float;
+    
+    public var onRail : Int;
+    
+    public function new(ex : Dynamic, ey : Dynamic, eRL : Dynamic, eUD : Dynamic, char : Dynamic)
+    {
+        var tempX : Float = Math.NaN;
+        super();
+        char.parent.addChild(this);
+        staticInteractObjects.InteractEnterFrameArray.push(this);
+        staticInteractObjects.HalfInteractEnterFrameArray.push(this);
+        tempX = Math.random() * 10 - 5;
+        x = ex + tempX;
+        y = ey + Math.random() * 6 - 3;
+        rotation = -Math.atan2(eRL, eUD + 2) / (Math.PI / 180);
+        scaleX = scaleY = 0.2 + Math.random() * 1;
+        if (Math.random() > 0.5)
+        {
+            scaleX *= -1;
+        }
+        scaleY += char.nowSpeed() * 0.05;
+        this.moveRL = -tempX * 0.15;
+        this.moveUD = -(Math.random() * 3) + 0.1;
+        gotoAndStop(Math.round(char.nowSpeed() * 0.4));
+    }
+    
+    public function InteractEnterFrame() : Dynamic
+    {
+        x += this.moveRL * Main.framin;
+        y += this.moveUD * Main.framin;
+        if (currentFrame == totalFrames)
+        {
+            staticInteractObjects.killInteract.push(this);
+        }
+        else
+        {
+            nextFrame();
+        }
+    }
+    
+    public function HalfInteractEnterFrame() : Dynamic
+    {
+        x += this.moveRL * Main.framin;
+        y += this.moveUD * Main.framin;
+    }
+    
+    public function hitChar() : Dynamic
+    {
+    }
+}
+
+

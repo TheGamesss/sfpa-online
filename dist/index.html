@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Play the native HTML5 port workspace for Super Fancy Pants Adventure." />
+  <meta property="og:image" content="./banner.png" />
+  <title>Super Fancy Pants Adventure HTML5 Port</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="stylesheet" href="./shell.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Native HTML5 Port Workspace</p>
+        <h1>Super Fancy Pants Adventure</h1>
+        <p class="lede">
+          This site now targets the native OpenFL/Starling port instead of the older Flash emulation path.
+          The playable content is still being translated, but the shell, scene flow, state bridge, and deployment
+          bundle are now built around the native runtime.
+        </p>
+        <div class="hero-actions">
+          <button id="playFocusButton" class="shell-button shell-button--primary" type="button">Focus Game</button>
+          <button id="fullscreenButton" class="shell-button" type="button">Fullscreen</button>
+          <button id="reloadButton" class="shell-button" type="button">Reload App</button>
+          <button id="clearSaveButton" class="shell-button shell-button--danger" type="button">Clear Local Save</button>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="./banner.png" alt="Super Fancy Pants Adventure banner art" />
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="game-panel">
+        <div class="panel-header">
+          <div>
+            <h2>Game Frame</h2>
+            <p id="shellStatusText">Loading the native runtime and waiting for the embedded app to report state.</p>
+          </div>
+          <div class="status-grid">
+            <div class="status-pill">
+              <span class="status-pill__label">Connection</span>
+              <strong id="connectionValue">Connecting</strong>
+            </div>
+            <div class="status-pill">
+              <span class="status-pill__label">Scene</span>
+              <strong id="sceneValue">Unknown</strong>
+            </div>
+            <div class="status-pill">
+              <span class="status-pill__label">Route</span>
+              <strong id="routeValue">Unknown</strong>
+            </div>
+          </div>
+        </div>
+
+        <div id="gameFrameShell" class="game-frame-shell">
+          <iframe
+            id="gameFrame"
+            title="Super Fancy Pants Adventure native port"
+            class="game-frame"
+            src="./app/index.html"
+            allow="fullscreen"
+            loading="eager"
+          ></iframe>
+          <div id="loadingOverlay" class="loading-overlay">
+            <div class="loading-overlay__card">
+              <strong>Launching native port</strong>
+              <p>
+                The outer website shell is ready. The embedded OpenFL app will report its scene and route state
+                here once the bridge connects.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="info-column">
+        <section class="info-card">
+          <h2>Live App State</h2>
+          <dl class="facts">
+            <div>
+              <dt>View Mode</dt>
+              <dd id="viewModeValue">Unknown</dd>
+            </div>
+            <div>
+              <dt>Selected Route</dt>
+              <dd id="selectedRouteValue">Unknown</dd>
+            </div>
+            <div>
+              <dt>Loaded Route</dt>
+              <dd id="loadedRouteValue">Unknown</dd>
+            </div>
+            <div>
+              <dt>Language</dt>
+              <dd id="languageValue">Unknown</dd>
+            </div>
+            <div>
+              <dt>One-Handed</dt>
+              <dd id="oneHandedValue">Unknown</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="info-card">
+          <h2>Keyboard Controls</h2>
+          <ul class="control-list">
+            <li><strong>Route browser:</strong> <code>W/S</code> directory, <code>A/D</code> level, <code>Q/E</code> door, <code>Enter</code> load</li>
+            <li><strong>Scene switches:</strong> <code>M</code> map, <code>L</code> level select, <code>R</code> respawn, <code>Esc</code> resume</li>
+            <li><strong>Quick transitions:</strong> <code>B</code> bonus, <code>F</code> finish / return</li>
+            <li><strong>Settings:</strong> <code>G</code> language, <code>X</code> fullscreen flag, <code>O</code> one-handed flag</li>
+          </ul>
+        </section>
+
+        <section class="info-card">
+          <h2>Bridge Inspector</h2>
+          <pre id="bridgeLog" class="bridge-log">Waiting for snapshot...</pre>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script src="./shell.js" type="module"></script>
+</body>
+</html>

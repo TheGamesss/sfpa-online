@@ -1,0 +1,347 @@
+:root {
+  --bg-top: #19140f;
+  --bg-bottom: #090b10;
+  --panel: rgba(17, 20, 26, 0.92);
+  --panel-strong: rgba(12, 15, 20, 0.96);
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #f3efe8;
+  --muted: #b8b1a6;
+  --accent: #f0b35a;
+  --accent-2: #83c2ff;
+  --danger: #d96d5c;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top left, rgba(240, 179, 90, 0.14), transparent 28%),
+    radial-gradient(circle at top right, rgba(131, 194, 255, 0.12), transparent 24%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  color: var(--text);
+  font-family: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
+}
+
+body {
+  padding: 32px;
+}
+
+.page-shell {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.9fr);
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.hero-copy,
+.hero-art {
+  background: rgba(14, 16, 21, 0.78);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+}
+
+.hero-copy {
+  padding: 32px;
+}
+
+.hero-art {
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.hero-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.82rem;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 0.96;
+}
+
+.lede {
+  margin: 18px 0 0;
+  max-width: 58ch;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.shell-button {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 12px 18px;
+  cursor: pointer;
+  font: inherit;
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+
+.shell-button:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.shell-button--primary {
+  background: linear-gradient(135deg, rgba(240, 179, 90, 0.18), rgba(240, 179, 90, 0.08));
+  border-color: rgba(240, 179, 90, 0.42);
+}
+
+.shell-button--danger {
+  border-color: rgba(217, 109, 92, 0.4);
+  color: #ffd5cf;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.75fr);
+  gap: 22px;
+}
+
+.game-panel,
+.info-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+}
+
+.game-panel {
+  padding: 24px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.panel-header p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  gap: 10px;
+  min-width: min(420px, 100%);
+}
+
+.status-pill {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 12px 14px;
+}
+
+.status-pill__label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+}
+
+.game-frame-shell {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 22px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 32%),
+    linear-gradient(180deg, rgba(12, 16, 22, 0.92), rgba(10, 11, 15, 1));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.game-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #000;
+}
+
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at center, rgba(240, 179, 90, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(8, 10, 14, 0.3), rgba(8, 10, 14, 0.88));
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+
+.loading-overlay.is-hidden {
+  opacity: 0;
+}
+
+.loading-overlay__card {
+  max-width: 420px;
+  padding: 24px;
+  text-align: center;
+  border-radius: 18px;
+  background: rgba(8, 10, 14, 0.88);
+  border: 1px solid rgba(240, 179, 90, 0.18);
+}
+
+.loading-overlay__card strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.loading-overlay__card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.info-column {
+  display: grid;
+  gap: 18px;
+}
+
+.info-card {
+  padding: 22px;
+}
+
+.facts {
+  margin: 18px 0 0;
+  display: grid;
+  gap: 14px;
+}
+
+.facts div {
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.facts div:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.facts dt {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+.facts dd {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.control-list {
+  margin: 18px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.control-list li + li {
+  margin-top: 10px;
+}
+
+.bridge-log {
+  margin: 18px 0 0;
+  padding: 16px;
+  min-height: 220px;
+  overflow: auto;
+  border-radius: 18px;
+  background: var(--panel-strong);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #d7dce6;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.83rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.92em;
+}
+
+@media (max-width: 1100px) {
+  body {
+    padding: 18px;
+  }
+
+  .hero,
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-header {
+    flex-direction: column;
+  }
+
+  .status-grid {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-copy,
+  .hero-art,
+  .game-panel,
+  .info-card {
+    border-radius: 18px;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .shell-button {
+    width: 100%;
+  }
+}

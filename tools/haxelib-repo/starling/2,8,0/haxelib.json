@@ -1,0 +1,18 @@
+{
+	"name": "starling",
+	"url": "https://github.com/openfl/starling",
+	"license": "BSD",
+	"tags": [ "starling", "2d", "gpu", "openfl", "flash", "air", "js", "web", "cpp" ],
+	"description": "The Cross-Platform Game Engine",
+	"version": "2.8.0",
+	"releasenote": "Adds HashLink target, various bug fixes",
+	"contributors": [
+		"p.j.shand",
+		"singmajesty",
+		"tbyrne",
+		"bowlerhat",
+		"Dimensionscape"
+	],
+	"dependencies": {},
+	"classPath": "src"
+}

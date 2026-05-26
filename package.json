@@ -1,0 +1,17 @@
+{
+  "name": "sfpa-web-shell",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Static deploy bundle for the native HTML5 Super Fancy Pants Adventure port",
+  "scripts": {
+    "build": "node scripts/build-deploy-site.mjs",
+    "start": "npm run build && node server.mjs",
+    "preview": "node server.mjs"
+  },
+  "dependencies": {
+    "@ruffle-rs/ruffle": "0.2.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.0.4"
+  }
+}

@@ -1,0 +1,123 @@
+package
+{
+   [Embed(source="/_assets/assets.swf", symbol="symbol2559")]
+   public class Spinner extends staticInteractObjects
+   {
+      
+      private var rotter:Number = 0;
+      
+      private var lift:Number = 0;
+      
+      private var maxLift:uint;
+      
+      public var myPlat:aPlat;
+      
+      private var fakeRL:Number = 0;
+      
+      private var on:Boolean;
+      
+      private var lock:Boolean;
+      
+      private var stamp:StarlingSmoke;
+      
+      public function Spinner(p:*)
+      {
+         isWide = 25;
+         isTall = 25;
+         super("Spinner",p.x,p.y,p.scaleX,p.scaleY,p.onRail,"nothing",-1);
+         Backgrounds.backgroundsArray[p.onRail].addChild(this);
+         InteractEnterFrameArray.push(this);
+         HalfInteractEnterFrameArray.push(this);
+         inkCollideArray.push(this);
+         pairID = p.pairID;
+         this.maxLift = p.maxLift;
+         this.lock = p.lock;
+         rotation = Math.random() * 180;
+         visible = false;
+         this.stamp = StarlingSmoke.Spawn("SpinnerStamp",x,y,Math.PI / 180 * rotation,scaleX * 0.6666,0,0,onRail);
+      }
+      
+      override public function InteractEnterFrame() : Boolean
+      {
+         this.HalfInteractEnterFrame();
+         if(Math.abs(this.lift) * 0.01 < 0.5)
+         {
+            this.rotter -= this.lift * 0.01;
+         }
+         else
+         {
+            this.rotter -= this.lift / Math.abs(this.lift) * 0.5;
+         }
+         if(Boolean(this.lock) && this.lift * this.rotter < 0)
+         {
+            if(Math.abs(this.rotter) > 0.5)
+            {
+               this.rotter = this.rotter / Math.abs(this.rotter) * 0.5;
+            }
+         }
+      }
+      
+      override public function HalfInteractEnterFrame() : void
+      {
+         if(this.on)
+         {
+            this.stamp.rotation += this.rotter * (Math.PI / 180) * framin;
+            if(this.lift * (this.lift + this.rotter * 0.5 * framin) < 0)
+            {
+               this.lift = 0;
+               if(Math.abs(this.rotter) < 5)
+               {
+                  this.rotter = 0;
+                  this.on = false;
+               }
+               else
+               {
+                  this.rotter *= -0.1;
+               }
+            }
+            else if(Math.abs(this.rotter) > 16)
+            {
+               this.lift += 8 * this.rotter / Math.abs(this.rotter) * framin;
+            }
+            else
+            {
+               this.lift += this.rotter * 0.5 * framin;
+            }
+            if(Math.abs(this.lift) > this.maxLift)
+            {
+               this.lift *= this.maxLift / Math.abs(this.lift);
+            }
+            if(this.lift == 0)
+            {
+               this.fakeRL = 0;
+            }
+            else
+            {
+               this.fakeRL = this.rotter * 0.25 * this.lift / Math.abs(this.lift);
+            }
+            this.myPlat.fromRemote(Math.abs(this.lift),this.fakeRL);
+         }
+      }
+      
+      public function hitInk(ex:*, ey:*, eRL:*, ink:*) : Boolean
+      {
+         this.on = true;
+         this.rotter += (eRL * 0.8 - this.rotter) * 0.1;
+         ink.moveRL *= this.rotter / eRL * 0.5;
+         ink.moveUD *= this.rotter / eRL * 0.5;
+         ink.moveUD -= Math.abs(this.rotter) * 1;
+         ink.x = x - isWide * eRL / Math.abs(eRL);
+         return true;
+      }
+      
+      override public function cleanUp() : void
+      {
+         if(this.stamp != null)
+         {
+            this.stamp.goSwim();
+            this.stamp = null;
+         }
+      }
+   }
+}
+

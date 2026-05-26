@@ -1,0 +1,81 @@
+Here's a list of all 16 achievements (in order according to https://steamcommunity.com/stats/668210/achievements), with the achievement name, image, and description:
+
+#1:
+Name: Complete your first challenge
+Img: complete-your-first-challenge.jpg
+Desc: Find a door, unlock a thing!
+
+#2:
+Name: Untouchable
+Img: untouchable.jpg
+Desc: Defeated 20 inklings without getting hurt.
+
+#3:
+Name: Play Ball!
+Img: play-ball.jpg
+Desc: Defeat a mouse with its own shot.
+
+#4:
+Name: You deserve a treat
+Img: you-deserve-a-treat.jpg
+Desc: Purchase your first Ice Cream cone on the first floor of the Bathtub Tower.
+
+#5:
+Name: Mouse Bowling
+Img: mouse-bowling.jpg
+Desc: Defeat a baddie with a rolling mouse.
+
+#6:
+Name: Boss Rush
+Img: boss-rush.jpg
+Desc: Defeat Boss 1 in under 45 seconds.
+
+#7:
+Name: Floor Is... of an alarming temperature
+Img: floor-is-of-an-alarming-temperature.jpg
+Desc: Stomp 10 baddies without touching the ground.
+
+#8:
+Name: Super Slider
+Img: super-slider.jpg
+Desc: Slide through 4 baddies in one slide.
+
+#9:
+Name: Fanciest Fighter
+Img: fanciest-fighter.jpg
+Desc: Learn every fighting move, through the power of Ice Cream!
+
+#10:
+Name: Basement Complete
+Img: basement-complete.jpg
+Desc: Defeat all challenges in the Basement Spire.
+
+#11:
+Name: Inkinator
+Img: inkinator.jpg
+Desc: Defeat 20 inklings in 10 seconds with ink shots.
+
+#12:
+Name: Fancy Juggling
+Img: fancy-juggling.jpg
+Desc: Keep a baddie in the air for over 20 hits.
+
+#13:
+Name: Squiggleville Complete
+Img: squiggleville-complete.jpg
+Desc: Defeat all challenges in the Squiggleville Plains.
+
+#14:
+Name: Tree Pirate Valley Complete
+Img: tree-pirate-valley-complete.jpg
+Desc: Defeat all challenges in the Tree Pirate Valley.
+
+#15:
+Name: Volcano Approach Complete
+Img: volcano-approach-complete.jpg
+Desc: Defeat all challenges in the Volcano Approach.
+
+#16:
+Name: Volcano Complete
+Img: volcano-complete.jpg
+Desc: Defeat all challenges in the Volcano.
