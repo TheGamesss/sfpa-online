@@ -1,0 +1,98 @@
+export const ACHIEVEMENTS = Object.freeze([
+  {
+    id: "First_Challenge",
+    name: "Complete your first challenge",
+    description: "Find a door, unlock a thing!",
+    mark: "✦",
+  },
+  {
+    id: "Untouchable",
+    name: "Untouchable",
+    description: "Defeat 20 inklings without getting hurt.",
+    mark: "↟",
+  },
+  {
+    id: "Play_Ball",
+    name: "Play Ball!",
+    description: "Defeat a mouse with its own shot.",
+    mark: "◉",
+  },
+  {
+    id: "First_Ice_Cream",
+    name: "You deserve a treat",
+    description: "Purchase your first Ice Cream cone on the first floor of the Bathtub Tower.",
+    mark: "✧",
+  },
+  {
+    id: "Mouse_Bowling",
+    name: "Mouse Bowling",
+    description: "Defeat a baddie with a rolling mouse.",
+    mark: "◎",
+  },
+  {
+    id: "Boss_Rush",
+    name: "Boss Rush",
+    description: "Defeat Boss 1 in under 45 seconds.",
+    mark: "ϟ",
+  },
+  {
+    id: "Floor_Is_Lava",
+    name: "Floor Is... of an alarming temperature",
+    description: "Stomp 10 baddies without touching the ground.",
+    mark: "⌁",
+  },
+  {
+    id: "Super_Slider",
+    name: "Super Slider",
+    description: "Slide through 4 baddies in one slide.",
+    mark: "↝",
+  },
+  {
+    id: "Fanciest_Fighter",
+    name: "Fanciest Fighter",
+    description: "Learn every fighting move, through the power of Ice Cream!",
+    mark: "✹",
+  },
+  {
+    id: "Basement_Complete",
+    name: "Basement Complete",
+    description: "Defeat all challenges in the Basement Spire.",
+    mark: "⌂",
+  },
+  {
+    id: "Inkinator",
+    name: "Inkinator",
+    description: "Defeat 20 inklings in 10 seconds with ink shots.",
+    mark: "✳",
+  },
+  {
+    id: "combo20",
+    name: "Fancy Juggling",
+    description: "Keep a baddie in the air for over 20 hits.",
+    mark: "⤴",
+  },
+  {
+    id: "Squiggleville_Complete",
+    name: "Squiggleville Complete",
+    description: "Defeat all challenges in the Squiggleville Plains.",
+    mark: "⌁",
+  },
+  {
+    id: "Pirate_Valley_Complete",
+    name: "Tree Pirate Valley Complete",
+    description: "Defeat all challenges in the Tree Pirate Valley.",
+    mark: "⚓",
+  },
+  {
+    id: "Approach_Complete",
+    name: "Volcano Approach Complete",
+    description: "Defeat all challenges in the Volcano Approach.",
+    mark: "↗",
+  },
+  {
+    id: "Volcano_Complete",
+    name: "Volcano Complete",
+    description: "Defeat all challenges in the Volcano.",
+    mark: "△",
+  },
+]);

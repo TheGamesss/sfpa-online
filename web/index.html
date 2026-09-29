@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#172e28" />
+    <meta
+      name="description"
+      content="Play Super Fancy Pants Adventure in your browser and track its 16 achievements."
+    />
+    <title>Super Fancy Pants Adventure — Browser Edition</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      window.RufflePlayer = window.RufflePlayer || {};
+      window.RufflePlayer.config = {
+        autoplay: "on",
+        allowScriptAccess: "sameDomain",
+        letterbox: "on",
+        scale: "showAll",
+        unmuteOverlay: "visible",
+        logLevel: "warn",
+      };
+    </script>
+    <script defer src="vendor/ruffle/ruffle.js"></script>
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to the game</a>
+
+    <header class="topbar">
+      <a class="wordmark" href="#play" aria-label="Super Fancy Pants Adventure home">
+        <span class="wordmark-scribble" aria-hidden="true">✳</span>
+        <span>SUPER FANCY<br /><b>PANTS ADVENTURE</b></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-link is-active" type="button" data-view-target="play" aria-current="page">
+          Play
+        </button>
+        <button class="nav-link" type="button" data-view-target="achievements">
+          Achievements <span class="nav-count" id="nav-count">0 / 16</span>
+        </button>
+      </nav>
+      <div class="browser-save"><span class="save-dot"></span> Browser save</div>
+    </header>
+
+    <main id="main">
+      <section class="view play-view" id="play-view" aria-labelledby="hero-title">
+        <div class="intro-row">
+          <div class="intro-copy">
+            <p class="eyebrow"><span>WORLD 4</span> · NOW IN YOUR BROWSER</p>
+            <h1 id="hero-title">Run wild.<br /><em>Stay fancy.</em></h1>
+            <p class="intro-text">
+              The full Super Fancy Pants Adventure, with your browser achievements gathered in one place.
+            </p>
+            <div class="intro-actions">
+              <button class="button button-primary" type="button" data-view-target="play" data-focus-game>
+                Jump in <span aria-hidden="true">↘</span>
+              </button>
+              <button class="button button-quiet" type="button" data-view-target="achievements">
+                View achievements <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <span class="hero-orbit orbit-one"></span>
+            <span class="hero-orbit orbit-two"></span>
+            <span class="hero-star star-one">✦</span>
+            <span class="hero-star star-two">✳</span>
+            <div class="hero-stamp"><span>KEEP<br />MOVING</span><b>↗</b></div>
+            <span class="hero-caption">A little more<br />room to run.</span>
+          </div>
+        </div>
+
+        <section class="game-section" aria-labelledby="game-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">THE ADVENTURE</p>
+              <h2 id="game-title">Ready, Fancy Pants?</h2>
+            </div>
+            <span class="chapter-tag">01 <i>/</i> RUN</span>
+          </div>
+
+          <div class="game-shell">
+            <div class="game-stage" id="game-stage">
+              <div class="player-host" id="player-host" aria-label="Game display"></div>
+              <div class="game-cover" id="game-cover">
+                <div class="cover-scribble" aria-hidden="true">✳</div>
+                <p class="eyebrow">FULL GAME · ORIGINAL LEVELS</p>
+                <h3>Find your flow.</h3>
+                <p class="cover-copy">Start the game when you’re ready. It loads in this window and keeps your save in this browser.</p>
+                <button class="button button-primary start-button" type="button" id="start-game">
+                  Start adventure <span aria-hidden="true">→</span>
+                </button>
+                <p class="loading-note" id="loading-note" hidden>Loading the adventure…</p>
+                <div class="load-error" id="load-error" role="alert" hidden>
+                  <p>The game could not start. Check your connection and try again.</p>
+                  <button class="button button-outline" type="button" id="retry-game">Try again</button>
+                </div>
+              </div>
+            </div>
+            <div class="game-toolbar">
+              <span class="game-status" id="game-status"><span class="status-dot"></span> READY WHEN YOU ARE</span>
+              <button class="toolbar-button" type="button" id="fullscreen-game" aria-label="Enter fullscreen">
+                <span aria-hidden="true">⛶</span> Fullscreen
+              </button>
+            </div>
+          </div>
+
+          <div class="controls-row" aria-label="Game controls">
+            <span class="controls-label">QUICK CONTROLS</span>
+            <span><kbd>←</kbd> <kbd>→</kbd> Move</span>
+            <span><kbd>S</kbd> Jump</span>
+            <span><kbd>A</kbd> Attack</span>
+            <span><kbd>D</kbd> Pencil shot</span>
+            <span><kbd>ESC</kbd> Pause</span>
+          </div>
+        </section>
+
+        <div class="play-footnote">
+          <span>✦</span>
+          <p>Made for movement. Best played with a keyboard or controller.</p>
+          <button type="button" data-view-target="achievements">See your achievements <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+
+      <section class="view achievements-view" id="achievements-view" aria-labelledby="achievements-title" hidden>
+        <div class="achievements-heading">
+          <div>
+            <p class="eyebrow"><span>YOUR ADVENTURE</span> · YOUR PROGRESS</p>
+            <h1 id="achievements-title">Little wins.<br /><em>Big fancy.</em></h1>
+            <p class="intro-text">Every challenge, every trick, every hard-won victory. It all adds up.</p>
+          </div>
+          <div class="progress-card" aria-live="polite">
+            <div class="progress-topline"><span>ADVENTURE COMPLETE</span><strong id="progress-fraction">0 / 16</strong></div>
+            <div class="progress-track" role="progressbar" aria-label="Achievements unlocked" aria-valuemin="0" aria-valuemax="16" aria-valuenow="0" id="progress-track">
+              <span id="progress-fill"></span>
+            </div>
+            <p id="progress-caption">All 16 achievements are still waiting.</p>
+          </div>
+        </div>
+
+        <div class="achievement-tools">
+          <div class="filter-group" role="group" aria-label="Filter achievements">
+            <button class="filter-button is-selected" type="button" data-filter="all" aria-pressed="true">All <span id="all-count">16</span></button>
+            <button class="filter-button" type="button" data-filter="unlocked" aria-pressed="false">Unlocked <span id="unlocked-count">0</span></button>
+            <button class="filter-button" type="button" data-filter="locked" aria-pressed="false">Locked <span id="locked-count">16</span></button>
+          </div>
+          <label class="search-wrap">
+            <span class="visually-hidden">Search achievements</span>
+            <span aria-hidden="true">⌕</span>
+            <input id="achievement-search" type="search" placeholder="Find an achievement" autocomplete="off" />
+          </label>
+          <button class="reset-button" type="button" id="reset-progress">Reset progress</button>
+        </div>
+
+        <div class="achievement-grid" id="achievement-grid" aria-live="polite"></div>
+        <p class="empty-results" id="empty-results" hidden>No achievements match this view. Try another filter or search.</p>
+
+        <aside class="save-note">
+          <span class="save-note-icon" aria-hidden="true">↗</span>
+          <p><b>Saved in this browser.</b> Browser achievements and game saves stay on this device and do not sync to a Steam account.</p>
+          <button class="button button-outline" type="button" data-view-target="play">Back to the game</button>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>SUPER FANCY PANTS ADVENTURE</span>
+      <span>RUN YOUR OWN WAY <b>✳</b></span>
+    </footer>
+
+    <div class="unlock-toast" id="unlock-toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+    <noscript>This browser edition needs JavaScript to run the game and keep your achievement progress.</noscript>
+  </body>
+</html>
