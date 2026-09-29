@@ -1,8 +1,0 @@
-{
-  "name": "sfpa-browser-port",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "build": "node scripts/build-site.mjs"
-  }
-}
